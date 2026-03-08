@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+
+{{ $template_path := joinPath .chezmoi.sourceDir ".chezmoitemplates" "Default_keyring.keyring" -}}
+keyring_dir="$HOME/.local/share/keyrings"
+keyring_file="$keyring_dir/Default_keyring.keyring"
+default_file="$keyring_dir/default"
+
+mkdir -p "$keyring_dir"
+
+chezmoi execute-template -f {{ $template_path | quote }} > "$keyring_file"
+
+cat << EOF > "$default_file"
+Default_keyring
+EOF
+
+chmod 700 "$keyring_dir"
+chmod 600 "$keyring_file"
+chmod 644 "$default_file"

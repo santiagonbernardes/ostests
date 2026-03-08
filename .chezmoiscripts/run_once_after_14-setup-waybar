@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+# https://github.com/Alexays/Waybar/issues/3778
+# just to ilustrate the logs I was getting from
+# systemd.
+sudo usermod -aG input $USER

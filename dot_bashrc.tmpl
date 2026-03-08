@@ -1,0 +1,22 @@
+#eval "$(starship init bash)"
+# ~/.bashrc
+#
+
+# If not running interactively, don't do anything
+[[ $- != *i* ]] && return
+
+alias ls='ls --color=auto'
+alias grep='grep --color=auto'
+alias cd="z"
+alias cdi="zi"
+
+# Use bash-completion, if available, and avoid double-sourcing
+[[ $PS1 &&
+  ! ${BASH_COMPLETION_VERSINFO:-} &&
+  -f /usr/share/bash-completion/bash_completion ]] &&
+  . /usr/share/bash-completion/bash_completion
+
+export BW_SESSION={{- env "BW_SESSION" | quote }}
+
+eval "$(starship init bash)"
+eval "$(zoxide init bash)"

@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+option=$(echo -e "Shutdown\nReboot" | walker -di)
+
+case "$option" in
+0)
+  hyprshutdown -t 'Shutting down...' --post-cmd 'shutdown -P 0'
+  ;;
+1)
+  hyprshutdown -t 'Restarting...' --post-cmd 'reboot'
+  ;;
+esac

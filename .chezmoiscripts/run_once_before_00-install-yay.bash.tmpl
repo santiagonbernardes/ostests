@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+
+
+ensure_yay() {
+  if ! command -v yay &> /dev/null; then
+    local clone_dir=$(mktemp -d)
+    repo_url="https://aur.archlinux.org/yay.git"
+
+    sudo pacman -Syu --needed --noconfirm --quiet \
+    git \
+    base-devel
+
+    git clone "$repo_url" "$clone_dir"
+    makepkg -si --dir "$clone_dir" --noconfirm --needed
+
+    yay -Y --gendb &&
+    yay -Syu --devel --needed --noconfirm --quiet &&
+    yay -Y --devel --save
+  fi
+}
+
+ensure_yay

@@ -1,0 +1,20 @@
+# NOTE: I'm not using the recommended PIDFile because this deamon does not
+# set it yet.
+# https://github.com/aome510/spotify-player/blob/f7b404804822be50bc237e0dcdacf1f43704988b/spotify_player/src/main.rs#L292
+
+[Unit]
+Description=Spotify Daemon
+Documentation=https://github.com/aome510/spotify-player/tree/master/docs
+After=sound.target
+
+[Service]
+# If it's not forking, it does not work as I want
+Type=forking
+# PIDFile=?
+Environment="RUST_LOG=spotify_player=DEBUG"
+; Environment="RUST_BACKTRACE=1"
+ExecStart=/usr/bin/spotify_player --daemon
+Restart=on-failure
+
+[Install]
+WantedBy=default.target

@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+
+sudo ufw default deny incoming
+sudo ufw default allow outgoing
+sudo ufw enable
+elephant service enable
+
+sudo systemctl enable \
+  ufw.service \
+  bluetooth.service \
+  power-profiles-daemon.service
+
+systemctl --user enable \
+  pipewire.service \
+  pipewire-pulse.service \
+  wireplumber.service \
+  playerctld.service \
+  waybar.service \
+  hyprpaper.service \
+  hypridle.service \
+  hyprpolkitagent.service \
+  hypridle.service \
+  spotify.service \
+  elephant.service \
+  walker.service

@@ -1,0 +1,32 @@
+#!/usr/bin/env bash
+
+pacman_pkgs_to_install=(
+{{ range .install.packages.pacman -}}
+  {{ if not (exec "pacman" "-Qi" .) }}
+    "{{ . }}"
+  {{- end -}}
+{{ end -}}
+)
+
+yay_pkgs_to_install=(
+{{ range .install.packages.yay -}}
+  {{ if not (exec "yay" "-Qi" .) }}
+    "{{ . }}"
+  {{- end -}}
+{{ end -}}
+)
+
+if [ ${#pacman_pkgs_to_install[@]} -gt 0 ]; then
+  sudo pacman -Syu \
+    --needed \
+    --noconfirm \
+    --quiet \
+    "${pacman_pkgs_to_install[@]}"
+fi
+
+if [ ${#yay_pkgs_to_install[@]} -gt 0 ]; then
+  yay -Syu \
+    --needed \
+    --noconfirm \
+    "${yay_pkgs_to_install[@]}"
+fi
