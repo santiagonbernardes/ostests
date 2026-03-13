@@ -1,8 +1,8 @@
 include "%L"
 
 # Identification
-<Multi_key> <space> <n> : {{ .my_name }}
-<Multi_key> <space> <e> : {{ .my_email }}
+<Multi_key> <space> <n> : {{ .my_name | quote }}
+<Multi_key> <space> <e> : {{ .my_email | quote }}
 
 # Fix cedilha
 <dead_acute> <C> : "Ç"

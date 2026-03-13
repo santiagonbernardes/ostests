@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-option=$(echo -e "Shutdown\nReboot" | walker -di)
+option=$(echo -e "Shutdown\nReboot" | rofi -dmenu -format i)
 
 case "$option" in
 0)

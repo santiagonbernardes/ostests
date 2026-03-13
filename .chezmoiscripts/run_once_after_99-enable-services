@@ -20,6 +20,4 @@ systemctl --user enable \
   hypridle.service \
   hyprpolkitagent.service \
   hypridle.service \
-  spotify.service \
-  elephant.service \
-  walker.service
+  spotify.service

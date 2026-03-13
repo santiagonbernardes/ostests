@@ -1,5 +1,23 @@
 #!/usr/bin/env bash
 
+ensure_yay() {
+  if ! command -v yay &> /dev/null; then
+    local clone_dir=$(mktemp -d)
+    repo_url="https://aur.archlinux.org/yay.git"
+
+    sudo pacman -Syu --needed --noconfirm --quiet \
+    git \
+    base-devel
+
+    git clone "$repo_url" "$clone_dir"
+    makepkg -si --dir "$clone_dir" --noconfirm --needed
+
+    yay -Y --gendb &&
+    yay -Syu --devel --needed --noconfirm --quiet &&
+    yay -Y --devel --save
+  fi
+}
+
 pacman_pkgs_to_install=(
 {{ range .install.packages.pacman -}}
   {{ if not (exec "pacman" "-Qi" .) }}
@@ -7,6 +25,23 @@ pacman_pkgs_to_install=(
   {{- end -}}
 {{ end -}}
 )
+
+# Text Editor
+# NOTE: installing TS with mise because the version in
+# arch packages is outdated
+mise use --global tree-sitter@latest \
+  lua@5.1 \
+  ruby@latest \
+  node@latest \
+  java@latest # openjdk
+
+# Walker
+mise use --global go@latest
+
+# Spotify Player
+mise use --global rust@latest
+
+ensure_yay
 
 yay_pkgs_to_install=(
 {{ range .install.packages.yay -}}
@@ -28,5 +63,13 @@ if [ ${#yay_pkgs_to_install[@]} -gt 0 ]; then
   yay -Syu \
     --needed \
     --noconfirm \
+    -- quiet \
     "${yay_pkgs_to_install[@]}"
+fi
+
+if ! command -v spotify_player &> /dev/null; then
+  # Pixelate is not enabled on pacman
+  cargo install spotify_player \
+    --no-default-features \
+    --features pulseaudio-backend,media-control,notify,daemon,fzf,pixelate
 fi
