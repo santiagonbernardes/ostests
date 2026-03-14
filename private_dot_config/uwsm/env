@@ -1,7 +1,8 @@
-env = NVD_BACKEND,direct
-env = LIBVA_DRIVER_NAME,nvidia
-env = __GLX_VENDOR_LIBRARY_NAME,nvidia
-
+export NVD_BACKEND="direct"
+export LIBVA_DRIVER_NAME="nvidia"
+export __GLX_VENDOR_LIBRARY_NAME="nvidia"
+export XCURSOR_SIZE=24
+export HYPRCURSOR_SIZE=24
 export EDITOR=nvim
 export SSH_AUTH_SOCK="$HOME/.bitwarden-ssh-agent.sock"
 export PATH="$PATH:$HOME/.local/bin"
