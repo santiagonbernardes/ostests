@@ -20,4 +20,5 @@ systemctl --user enable \
   hypridle.service \
   hyprpolkitagent.service \
   hypridle.service \
-  spotify.service
+  spotify.service \
+  hyprpaper.service

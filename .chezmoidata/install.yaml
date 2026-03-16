@@ -42,6 +42,7 @@ install:
       - qt6-wayland
       - power-profiles-daemon
       - ttf-jetbrains-mono-nerd
+      - noto-fonts-emoji
       - plymouth
       - xdg-user-dirs
       - libnotify

@@ -2,20 +2,21 @@
 {{- $my_email := promptStringOnce . "email" "Git Email" -}}
 
 [hooks.read-source-state.pre]
-command = {{ joinPath .chezmoi.sourceDir "system" "bin" "ensure-password-manager" | quote }}
+  command = {{ joinPath .chezmoi.sourceDir "system" "bin" "ensure-password-manager" | quote }}
 
 [bitwarden]
-unlock = "auto"
+  unlock = "auto"
 
 [data]
-my_name = {{ $my_name | quote }}
-my_email = {{ $my_email | quote }}
+  my_name = {{ $my_name | quote }}
+  my_email = {{ $my_email | quote }}
+  font = "JetBrainsMono Nerd Font"
 
 [merge]
-command = "nvim"
-args = [
-  "-d",
-  {{ printf "%q" "{{ .Destination }}" }},
-  {{ printf "%q" "{{ .Source }}" }},
-  {{ printf "%q" "{{ .Target }}" }},
-]
+  command = "nvim"
+  args = [
+    "-d",
+    {{ printf "%q" "{{ .Destination }}" }},
+    {{ printf "%q" "{{ .Source }}" }},
+    {{ printf "%q" "{{ .Target }}" }},
+  ]
