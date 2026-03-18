@@ -1,4 +1,5 @@
 @import url("./colors.css");
+
 * {
     border: none;
     border-radius: 0;
@@ -6,40 +7,121 @@
     font-size: 10pt;
     min-height: 0;
 }
+
 window#waybar {
-    opacity: 0.9;
-    background: @background-darker;
+    background: transparent;
     color: @foreground;
-    border-bottom: 2px solid @background;
+    /* Margin to create the floating effect: top right bottom left */
+    margin: 5px 10px 0 10px;
 }
+
+/* 
+  Pill Styling 
+  Apply to all direct children of the modules containers
+*/
+.modules-left > widget > *,
+.modules-center > widget > *,
+.modules-right > widget > * {
+    background: @background-darker;
+    border-radius: 15px;
+    padding: 2px 12px;
+    margin: 5px 4px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s cubic-bezier(.55,-0.68,.48,1.68);
+}
+
+/* Hover effect for all interactive modules */
+.modules-left > widget > *:hover,
+.modules-center > widget > *:hover,
+.modules-right > widget > *:hover {
+    background: @selection;
+}
+
+/* Workspaces Module */
+#workspaces {
+    padding: 0;
+    background: @background-darker;
+}
+
 #workspaces button {
     padding: 0 10px;
-    background: @background;
+    background: transparent;
     color: @foreground;
+    border-radius: 15px;
+    transition: all 0.3s cubic-bezier(.55,-0.68,.48,1.68);
 }
+
 #workspaces button:hover {
     box-shadow: inherit;
     text-shadow: inherit;
-    background-image: linear-gradient(0deg, @selection, @background-darker);
+    background-color: @selection;
 }
+
 #workspaces button.focused,
 #workspaces button.active {
-    background-image: linear-gradient(0deg, @purple, @selection);
+    background-image: linear-gradient(0deg, @purple, @pink);
+    color: @background-darker;
 }
+
 #workspaces button.urgent {
-    background-image: linear-gradient(0deg, @red, @background-darker);
+    background-image: linear-gradient(0deg, @red, @orange);
+    color: @background-darker;
 }
-#taskbar button.active {
-    background-image: linear-gradient(0deg, @selection, @background-darker);
+
+/* Hardware Group Pill */
+#hardware {
+    padding: 0 6px;
 }
-#clock {
+#hardware > widget > * {
+    padding: 0 6px;
+}
+
+/* Power Drawer */
+#power {
+    padding: 0 12px;
+}
+#power > widget > * {
     padding: 0 4px;
-    background: @background;
+    transition: all 0.3s cubic-bezier(.55,-0.68,.48,1.68);
 }
-.modules-right > widget > label,
-.modules-right > widget > box {
-    padding: 0 10px;
+#power > widget > *:hover {
+    color: @pink;
 }
-.modules-right {
-    margin-right: 4px;
+
+/* Custom Contextual Colors */
+#pulseaudio.muted {
+    color: @red;
+}
+
+#network.disconnected {
+    color: @red;
+}
+
+#battery.charging {
+    color: @green;
+}
+
+#battery.warning {
+    color: @orange;
+}
+
+#battery.critical {
+    color: @red;
+    animation-name: blink;
+    animation-duration: 0.8s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+#temperature.critical {
+    color: @red;
+}
+
+/* Blink Animation Keyframes */
+@keyframes blink {
+    to {
+        color: @foreground;
+        background-color: @selection;
+    }
 }

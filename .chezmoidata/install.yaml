@@ -43,6 +43,7 @@ install:
       - power-profiles-daemon
       - ttf-jetbrains-mono-nerd
       - noto-fonts-emoji
+      - noto-fonts-cjk
       - plymouth
       - xdg-user-dirs
       - libnotify
@@ -79,12 +80,11 @@ install:
       - curl
       - bat
       - fd
-      - lazydocker
       - lazygit
       - ripgrep
       - fcitx5
       - chezmoi
-      # - w3m
+      - w3m
       # File Manager
       - yazi
       - file
@@ -130,6 +130,15 @@ install:
       - zlib
       ## IA tools
       - opencode
+      ## Docker
+      - docker
+      - docker-buildx
+      - docker-compose
+      - nvidia-container-toolkit
+      - lazydocker
+      ## Screenshot
+      - grim
+      - slurp
     yay:
       # - walker
       # - elephant

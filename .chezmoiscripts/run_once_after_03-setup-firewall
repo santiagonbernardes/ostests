@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+ufw_docker_bin="https://raw.githubusercontent.com/chaifeng/ufw-docker/251123/ufw-docker"
+sudo ufw default deny incoming
+sudo ufw default allow outgoing
+sudo curl "$ufw_docker_bin" -o /usr/local/bin/ufw-docker
+sudo chmod +x /usr/local/bin/ufw-docker
+sudo ufw-docker install
+sudo systemctl restart ufw
