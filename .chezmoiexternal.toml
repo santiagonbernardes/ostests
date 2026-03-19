@@ -1,0 +1,9 @@
+[".local/share/.tmux/plugins/tpm"]
+    type = "git-repo"
+    url = "https://github.com/tmux-plugins/tpm.git"
+    refreshPeriod = "168h"
+
+["/usr/local/bin/ufw-docker"]
+    type = "file"
+    url = "https://raw.githubusercontent.com/chaifeng/ufw-docker/251123/ufw-docker"
+    executable = true

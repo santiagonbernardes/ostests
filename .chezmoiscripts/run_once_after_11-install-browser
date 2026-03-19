@@ -1,8 +1,0 @@
-#!/usr/bin/env bash
-
-expected_browser="firefox.desktop"
-current_browser="$(xdg-settings get default-web-browser)"
-
-if [[ "$current_browser" != "$expected_browser" ]]; then
-  xdg-settings set default-web-browser "$expected_browser"
-fi

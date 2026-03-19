@@ -20,11 +20,33 @@ ensure_yay() {
 
 pacman_pkgs_to_install=(
 {{ range .install.packages.pacman -}}
-  {{ if not (exec "pacman" "-Qi" .) }}
-    "{{ . }}"
-  {{- end -}}
+  "{{ . }}"
 {{ end -}}
 )
+
+yay_pkgs_to_install=(
+{{ range .install.packages.yay -}}
+  "{{ . }}"
+{{ end -}}
+)
+
+if [ ${#pacman_pkgs_to_install[@]} -gt 0 ]; then
+  sudo pacman -Syu \
+    --needed \
+    --noconfirm \
+    --quiet \
+    "${pacman_pkgs_to_install[@]}"
+fi
+
+ensure_yay
+
+if [ ${#yay_pkgs_to_install[@]} -gt 0 ]; then
+  yay -Syu \
+    --needed \
+    --noconfirm \
+    --quiet \
+    "${yay_pkgs_to_install[@]}"
+fi
 
 # Text Editor
 # NOTE: installing TS with mise because the version in
@@ -40,32 +62,6 @@ mise use --global go@latest
 
 # Spotify Player
 mise use --global rust@latest
-
-ensure_yay
-
-yay_pkgs_to_install=(
-{{ range .install.packages.yay -}}
-  {{ if not (exec "yay" "-Qi" .) }}
-    "{{ . }}"
-  {{- end -}}
-{{ end -}}
-)
-
-if [ ${#pacman_pkgs_to_install[@]} -gt 0 ]; then
-  sudo pacman -Syu \
-    --needed \
-    --noconfirm \
-    --quiet \
-    "${pacman_pkgs_to_install[@]}"
-fi
-
-if [ ${#yay_pkgs_to_install[@]} -gt 0 ]; then
-  yay -Syu \
-    --needed \
-    --noconfirm \
-    -- quiet \
-    "${yay_pkgs_to_install[@]}"
-fi
 
 if ! command -v spotify_player &> /dev/null; then
   # Pixelate is not enabled on pacman
