@@ -8,9 +8,12 @@ if ! lsmod | grep -q "^${module}"; then
   sudo modprobe "${module}"
 fi
 
-# Configure Firewall (ufw-docker is now pulled via .chezmoiexternal.toml)
+# Configure Firewall
+ufw_docker_bin="https://raw.githubusercontent.com/chaifeng/ufw-docker/251123/ufw-docker"
 sudo ufw default deny incoming
 sudo ufw default allow outgoing
+sudo curl "$ufw_docker_bin" -o /usr/local/bin/ufw-docker
+sudo chmod +x /usr/local/bin/ufw-docker
 sudo ufw-docker install
 sudo systemctl restart ufw
 
