@@ -44,7 +44,7 @@ window#waybar {
 }
 
 #workspaces button {
-    padding: 0 10px;
+    padding: 2px 10px;
     background: transparent;
     color: @foreground;
     border-radius: 15px;
@@ -70,15 +70,28 @@ window#waybar {
 
 /* Hardware Group Pill */
 #hardware {
-    padding: 0 6px;
+    padding: 2px 6px;
 }
 #hardware > widget > * {
     padding: 0 6px;
 }
 
+/* System Group Pill */
+#system {
+    padding: 2px 6px;
+}
+#system > widget > * {
+    padding: 0 6px;
+}
+
+/* Tray Pill */
+#tray {
+    padding: 2px 8px;
+}
+
 /* Power Drawer */
 #power {
-    padding: 0 12px;
+    padding: 2px 12px;
 }
 #power > widget > * {
     padding: 0 4px;
@@ -89,6 +102,14 @@ window#waybar {
 }
 
 /* Custom Contextual Colors */
+#idle_inhibitor,
+#power-profiles-daemon {
+    /* Ensure single-character icons center correctly in GTK boxes */
+    min-width: 14px;
+    padding-left: 2px;
+    padding-right: 2px;
+}
+
 #pulseaudio.muted {
     color: @red;
 }
