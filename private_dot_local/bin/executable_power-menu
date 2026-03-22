@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-option=$(echo -e "Lock\nReboot\nShutdown" | rofi -dmenu -p "" -format i)
+option=$(echo -e "Lock\nReboot\nShutdown" | rofi -dmenu -format i)
 
 case "$option" in
 0)
