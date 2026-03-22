@@ -1,12 +1,15 @@
 #!/usr/bin/env bash
 
-option=$(echo -e "Shutdown\nReboot" | rofi -dmenu -format i)
+option=$(echo -e "Lock\nReboot\nShutdown" | rofi -dmenu -p "" -format i)
 
 case "$option" in
 0)
-  hyprshutdown -t 'Shutting down...' --post-cmd 'shutdown -P 0'
+  hyprlock
   ;;
 1)
   hyprshutdown -t 'Restarting...' --post-cmd 'reboot'
+  ;;
+2)
+  hyprshutdown -t 'Shutting down...' --post-cmd 'shutdown -P 0'
   ;;
 esac

@@ -41,6 +41,7 @@ install:
       - qt5-wayland
       - qt6-wayland
       - power-profiles-daemon
+      - python-gobject # for powerprofilesctl
       - ttf-jetbrains-mono-nerd
       - noto-fonts-emoji
       - noto-fonts-cjk

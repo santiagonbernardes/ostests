@@ -15,7 +15,7 @@
     "backlight",
     "battery",
     "tray",
-    "group/power"
+    "custom/power"
   ],
   "group/hardware": {
     "orientation": "horizontal",
@@ -23,20 +23,6 @@
       "cpu",
       "memory",
       "temperature"
-    ]
-  },
-  "group/power": {
-    "orientation": "horizontal",
-    "drawer": {
-      "transition-duration": 500,
-      "children-class": "not-power",
-      "transition-left-to-right": false
-    },
-    "modules": [
-      "custom/power",
-      "custom/lock",
-      "custom/reboot",
-      "custom/quit"
     ]
   },
   "group/system": {
@@ -120,6 +106,8 @@
     "format-full": "{icon} {capacity}%",
     "format-charging": " {capacity}%",
     "format-plugged": " {capacity}%",
+    "on-click": "waybar-power-profile",
+    "on-click-right": "mode",
     "format-alt": "{icon} {time}",
     "format-icons": [
       "",
@@ -173,21 +161,6 @@
   "custom/power": {
     "format": "⏻",
     "tooltip": false,
-    "on-click": "shutdown now"
-  },
-  "custom/quit": {
-    "format": "󰗼",
-    "tooltip": false,
-    "on-click": "hyprctl dispatch exit"
-  },
-  "custom/lock": {
-    "format": "󰍁",
-    "tooltip": false,
-    "on-click": "swaylock"
-  },
-  "custom/reboot": {
-    "format": "󰜉",
-    "tooltip": false,
-    "on-click": "reboot"
+    "on-click": "power-menu"
   }
 }
