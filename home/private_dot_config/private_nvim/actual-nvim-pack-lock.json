@@ -15,6 +15,11 @@
       "src": "https://github.com/rafamadriz/friendly-snippets",
       "version": "'main'"
     },
+    "fzf-lua": {
+      "rev": "c46b51aac910a2115545029f74b0a04df7ed1872",
+      "src": "https://github.com/ibhagwan/fzf-lua",
+      "version": "'main'"
+    },
     "gitsigns.nvim": {
       "rev": "31d6fb2d618bca1482b9f274751ead5f03461408",
       "src": "https://github.com/lewis6991/gitsigns.nvim",
@@ -28,11 +33,6 @@
     "lazydev.nvim": {
       "rev": "ff2cbcba459b637ec3fd165a2be59b7bbaeedf0d",
       "src": "https://github.com/folke/lazydev.nvim",
-      "version": "'main'"
-    },
-    "lazygit.nvim": {
-      "rev": "a04ad0dbc725134edbee3a5eea29290976695357",
-      "src": "https://github.com/kdheepak/lazygit.nvim",
       "version": "'main'"
     },
     "lualine.nvim": {
@@ -49,29 +49,14 @@
       "rev": "25248c6aa002391936a6200f12d1466015987133",
       "src": "https://github.com/nvim-mini/mini.ai"
     },
-    "mini.extra": {
-      "rev": "9c6affac2b176142f48b185bd7abc5db7ec20ac8",
-      "src": "https://github.com/nvim-mini/mini.extra",
-      "version": "'main'"
-    },
     "mini.icons": {
       "rev": "98faae31e9be1cc054ae63485e58ceb185efcad0",
       "src": "https://github.com/nvim-mini/mini.icons",
       "version": "'main'"
     },
-    "mini.input": {
-      "rev": "957991e29b060dd74aad0b4098993dad313e09fa",
-      "src": "https://github.com/nvim-mini/mini.input",
-      "version": "'main'"
-    },
     "mini.notify": {
       "rev": "13df5edffc3e27937b166a0f25a8329b46e15a4e",
       "src": "https://github.com/nvim-mini/mini.notify",
-      "version": "'main'"
-    },
-    "mini.pick": {
-      "rev": "04e73ab07222508361095bb6e27621b315e6b9f1",
-      "src": "https://github.com/nvim-mini/mini.pick",
       "version": "'main'"
     },
     "mini.snippets": {

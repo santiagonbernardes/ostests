@@ -5,9 +5,7 @@ return {
     {
       modes = { 'n', 'v' },
       lhs = '<C-]>',
-      rhs = function(_, _)
-        return function() MiniExtra.pickers.lsp({ scope = 'definition' }) end
-      end,
+      rhs = function(_, _) return FzfLua.lsp_definitions end,
       opts = function(_, bufnr)
         return { desc = 'go to definition', buf = bufnr }
       end,

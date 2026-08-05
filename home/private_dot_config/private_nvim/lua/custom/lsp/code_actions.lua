@@ -5,9 +5,7 @@ return {
     {
       modes = { 'n', 'v' },
       lhs = 'gra',
-      rhs = function(_, _)
-        return function() vim.lsp.buf.code_action() end
-      end,
+      rhs = function(_, _) return FzfLua.lsp_code_actions end,
       opts = function(_, bufnr)
         return { desc = 'show code [a]ctions', buf = bufnr }
       end,

@@ -5,9 +5,7 @@ return {
     {
       modes = 'n',
       lhs = 'gO',
-      rhs = function(_, _)
-        return function() MiniExtra.pickers.lsp({ scope = 'document_symbol' }) end
-      end,
+      rhs = function(_, _) return FzfLua.lsp_document_symbols end,
       opts = function(_, bufnr)
         return { desc = '[g]o to d[O]cument symbols', buf = bufnr }
       end,

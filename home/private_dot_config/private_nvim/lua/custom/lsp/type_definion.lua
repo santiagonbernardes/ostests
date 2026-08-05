@@ -5,9 +5,7 @@ return {
     {
       modes = 'n',
       lhs = 'grt',
-      rhs = function(_, _)
-        return function() MiniExtra.pickers.lsp({ scope = 'type_definition' }) end
-      end,
+      rhs = function(_, _) return FzfLua.lsp_typedefs end,
       opts = function(_, bufnr)
         return { desc = 'go to [t]ype definitions', buf = bufnr }
       end,
