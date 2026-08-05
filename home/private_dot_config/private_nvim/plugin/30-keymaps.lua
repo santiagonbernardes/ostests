@@ -1,3 +1,5 @@
+local bufferline = require('bufferline')
+
 require('which-key').add({
   { mode = { 'n', 'x' }, lhs = '<leader>t', group = '[t]oggle', icon = '' },
   { mode = { 'n', 'x' }, lhs = 'gr', group = 'LSP Actions', icon = '' },
@@ -16,79 +18,55 @@ require('which-key').add({
     icon = '',
   },
 })
-vim.keymap.set('n', '[b', '<cmd>bprevious<cr>', { desc = 'Prev Buffer' })
-vim.keymap.set('n', ']b', '<cmd>bnext<cr>', { desc = 'Next Buffer' })
 vim.keymap.set(
   'n',
-  '<leader>bb',
-  '<cmd>e #<cr>',
-  { desc = 'Switch to Other Buffer' }
+  '<leader>bn',
+  function() bufferline.cycle(1) end,
+  { desc = 'Cycle to [n]ext buffer' }
+)
+vim.keymap.set(
+  'n',
+  '<leader>bN',
+  function() bufferline.cycle(-1) end,
+  { desc = 'Cycle to previous buffer' }
 )
 vim.keymap.set(
   'n',
   '<leader>bd',
-  '<cmd>bdelete<cr>',
+  function() vim.api.nvim_buf_delete(0, {}) end,
   { desc = 'Delete Buffer' }
 )
-vim.keymap.set('n', '<leader>bo', function()
-  local current_buffer = vim.api.nvim_get_current_buf()
-  local every_buffer = vim.api.nvim_list_bufs()
-  local buffers_might_be_deleted = vim.tbl_filter(
-    function(buffer) return buffer ~= current_buffer end,
-    every_buffer
-  )
-
-  if vim.fn.empty(buffers_might_be_deleted) == 1 then return end
-
-  -- User Options
-  -- local yes = 1
-  local no = 2
-  local cancel = 3
-  local control_c_or_esc = 0
-  local ignore = {}
-
-  for _, buffer_might_be_deleted in ipairs(buffers_might_be_deleted) do
-    if vim.bo[buffer_might_be_deleted].modified then
-      vim.cmd(':b ' .. buffer_might_be_deleted)
-
-      local ok, choice = pcall(
-        vim.fn.confirm,
-        ('Save changes to %q?'):format(vim.fn.bufname(buffer_might_be_deleted)),
-        '&Yes\n&No\n&Cancel'
-      )
-
-      if not ok or choice == control_c_or_esc or choice == cancel then
-        vim.cmd(':b ' .. current_buffer)
-        return
-      elseif choice == no then
-        table.insert(ignore, buffer_might_be_deleted)
-      else
-        vim.api.nvim_buf_call(buffer_might_be_deleted, vim.cmd.write)
-      end
-
-      vim.cmd(':b ' .. current_buffer)
-    end
-  end
-
-  local buffers_to_delete = buffers_might_be_deleted
-  if not vim.tbl_isempty(ignore) then
-    buffers_to_delete = vim.tbl_filter(
-      function(buffer_might_be_deleted)
-        return not vim.tbl_contains(ignore, buffer_might_be_deleted)
-      end,
-      buffers_might_be_deleted
-    )
-  end
-
-  vim.cmd('bdelete ' .. table.concat(buffers_to_delete, ' '))
-end, { desc = 'Delete Other Buffers' })
 vim.keymap.set(
   'n',
-  '<leader>bD',
-  '<cmd>:bd<cr>',
-  { desc = 'Delete Buffer and Window' }
+  '<leader>bo',
+  bufferline.close_others,
+  { desc = 'Delete Other Buffers' }
 )
-
+vim.keymap.set(
+  'n',
+  '<leader>bl',
+  function() bufferline.close_in_direction('right') end,
+  { desc = 'Delete buffers to the right' }
+)
+vim.keymap.set(
+  'n',
+  '<leader>bh',
+  function() bufferline.close_in_direction('left') end,
+  { desc = 'Delete buffers to the left' }
+)
+vim.keymap.set(
+  'n',
+  '<leader>bp',
+  require('bufferline.groups').toggle_pin,
+  { desc = 'Toggle [p]in' }
+)
+vim.keymap.set(
+  'n',
+  '<leader>bu',
+  function() require('bufferline.groups').action('ungrouped', 'close') end,
+  { desc = 'Delete [u]npinned' }
+)
+vim.keymap.set('n', '<leader>bg', bufferline.pick, { desc = '[g]o to buffer' })
 vim.keymap.set(
   { 'n', 'v' },
   '<leader>nh',
