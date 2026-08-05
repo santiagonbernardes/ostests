@@ -54,11 +54,6 @@
       "src": "https://github.com/nvim-mini/mini.icons",
       "version": "'main'"
     },
-    "mini.notify": {
-      "rev": "13df5edffc3e27937b166a0f25a8329b46e15a4e",
-      "src": "https://github.com/nvim-mini/mini.notify",
-      "version": "'main'"
-    },
     "mini.snippets": {
       "rev": "050638170639ceb7bef4e804507cbf209e565b2c",
       "src": "https://github.com/nvim-mini/mini.snippets",
@@ -67,6 +62,11 @@
     "mini.surround": {
       "rev": "8d5d0c5aa92449368ac251e85451d79d8f69d296",
       "src": "https://github.com/nvim-mini/mini.surround",
+      "version": "'main'"
+    },
+    "noice.nvim": {
+      "rev": "7bfd942445fb63089b59f97ca487d605e715f155",
+      "src": "https://github.com/folke/noice.nvim",
       "version": "'main'"
     },
     "nui.nvim": {
@@ -83,6 +83,11 @@
       "rev": "b89138d9af0a96e6048e202a15765fc6b6416bd4",
       "src": "https://github.com/neovim/nvim-lspconfig",
       "version": "2.0.0 - 3.0.0"
+    },
+    "nvim-notify": {
+      "rev": "8701bece920b38ea289b457f902e2ad184131a5d",
+      "src": "https://github.com/rcarriga/nvim-notify",
+      "version": "3.0.0 - 4.0.0"
     },
     "nvim-treesitter": {
       "rev": "0f32dff7f19476629c77467f887b95e5e2d33509",

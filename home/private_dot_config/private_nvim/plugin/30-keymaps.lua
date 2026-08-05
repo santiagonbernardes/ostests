@@ -89,12 +89,12 @@ vim.keymap.set(
   { desc = 'Delete Buffer and Window' }
 )
 
--- vim.keymap.set(
---   { 'n', 'v' },
---   '<leader>nh',
---   function() MiniNotify.show_history() end,
---   { desc = 'Show [n]otification [h]istory' }
--- )
+vim.keymap.set(
+  { 'n', 'v' },
+  '<leader>nh',
+  '<cmd>:Noice fzf<cr>',
+  { desc = 'Show [n]otification [h]istory' }
+)
 vim.keymap.set(
   'n',
   '<Esc>',

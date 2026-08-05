@@ -75,4 +75,5 @@ require('nvim-treesitter').install({
   'vim',
   'vimdoc',
   'ruby',
+  'regex',
 })
