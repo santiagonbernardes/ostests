@@ -181,10 +181,3 @@ vim.keymap.set(
   MiniExtra.pickers.keymaps,
   { desc = '[f]ind in [k]eymaps' }
 )
-
-vim.keymap.set(
-  'n',
-  '<leader>gg',
-  '<cmd>LazyGit<cr>',
-  { desc = 'Open Lazy[G]it' }
-)
