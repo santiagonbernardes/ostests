@@ -1,5 +1,5 @@
-vim.pack.add({
-  require('custom.specs').mini_extra,
-})
-
-require('mini.extra').setup()
+-- vim.pack.add({
+--   require('custom.specs').mini_extra,
+-- })
+--
+-- require('mini.extra').setup()

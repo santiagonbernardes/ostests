@@ -89,12 +89,12 @@ vim.keymap.set(
   { desc = 'Delete Buffer and Window' }
 )
 
-vim.keymap.set(
-  { 'n', 'v' },
-  '<leader>nh',
-  function() MiniNotify.show_history() end,
-  { desc = 'Show [n]otification [h]istory' }
-)
+-- vim.keymap.set(
+--   { 'n', 'v' },
+--   '<leader>nh',
+--   function() MiniNotify.show_history() end,
+--   { desc = 'Show [n]otification [h]istory' }
+-- )
 vim.keymap.set(
   'n',
   '<Esc>',
@@ -150,34 +150,34 @@ vim.keymap.set(
   { desc = 'Open File [E]xplorer' }
 )
 
-vim.keymap.set(
-  'n',
-  '<leader>ff',
-  MiniPick.builtin.files,
-  { desc = '[F]ind [F]iles' }
-)
-vim.keymap.set(
-  'n',
-  '<leader>fg',
-  MiniPick.builtin.grep_live,
-  { desc = '[F]ind with [G]rep' }
-)
-vim.keymap.set(
-  'n',
-  '<leader>fb',
-  MiniPick.builtin.buffers,
-  { desc = '[F]ind in [B]uffers' }
-)
-vim.keymap.set(
-  'n',
-  '<leader>fh',
-  function() return MiniPick.builtin.help({ default_split = 'vertical' }) end,
-  { desc = '[F]ind in [H]elp' }
-)
-
-vim.keymap.set(
-  'n',
-  '<leader>fk',
-  MiniExtra.pickers.keymaps,
-  { desc = '[f]ind in [k]eymaps' }
-)
+-- vim.keymap.set(
+--   'n',
+--   '<leader>ff',
+--   MiniPick.builtin.files,
+--   { desc = '[F]ind [F]iles' }
+-- )
+-- vim.keymap.set(
+--   'n',
+--   '<leader>fg',
+--   MiniPick.builtin.grep_live,
+--   { desc = '[F]ind with [G]rep' }
+-- )
+-- vim.keymap.set(
+--   'n',
+--   '<leader>fb',
+--   MiniPick.builtin.buffers,
+--   { desc = '[F]ind in [B]uffers' }
+-- )
+-- vim.keymap.set(
+--   'n',
+--   '<leader>fh',
+--   function() return MiniPick.builtin.help({ default_split = 'vertical' }) end,
+--   { desc = '[F]ind in [H]elp' }
+-- )
+--
+-- vim.keymap.set(
+--   'n',
+--   '<leader>fk',
+--   MiniExtra.pickers.keymaps,
+--   { desc = '[f]ind in [k]eymaps' }
+-- )
