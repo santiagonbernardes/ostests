@@ -7,3 +7,4 @@ vim.g.maplocalleader = '\\' -- Maps localleader to \
 require('custom.options')
 require('custom.diagnostics')
 require('custom.autocmds')
+require('custom.lsp').disable_lsp_keymaps()

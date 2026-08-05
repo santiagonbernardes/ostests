@@ -1,4 +1,5 @@
 local notify_helper = require('custom.helpers.notify')
+local lsp = require('custom.lsp')
 
 vim.api.nvim_create_autocmd('TextYankPost', {
   desc = 'Highlight copied text',
@@ -9,10 +10,7 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   callback = function() vim.hl.on_yank() end,
 })
 
---- @type LspConfig
-local lsp_configurations = require('custom.lsp')
-
-for _, config in ipairs(lsp_configurations) do
+for _, config in ipairs(lsp.get_lsp_configs()) do
   local method = config.method
   vim.api.nvim_create_autocmd('LspAttach', {
     group = vim.api.nvim_create_augroup(

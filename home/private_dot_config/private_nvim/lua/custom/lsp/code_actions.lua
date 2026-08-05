@@ -8,7 +8,7 @@ return {
       rhs = function(_, _)
         return function() vim.lsp.buf.code_action() end
       end,
-      opts = function(client, bufnr)
+      opts = function(_, bufnr)
         return { desc = 'show code [a]ctions', buf = bufnr }
       end,
     },

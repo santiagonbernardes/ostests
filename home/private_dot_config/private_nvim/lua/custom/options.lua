@@ -32,47 +32,11 @@ vim.opt.autocomplete = true
 vim.opt.completeopt = { 'menuone', 'noselect', 'popup', 'fuzzy' }
 vim.opt.pumborder = 'rounded'
 vim.opt.complete = {
-  'o', -- Omnifunc (LSP),
-  '.', -- 	.	scan the current buffer (default)
-  'w', -- 	w	scan buffers from other windows (default)
-  'b', -- 	b	scan other loaded buffers that are in the buffer list (default)
-  'u', -- 	u	scan the unloaded buffers that are in the buffer list (default)
-  't', -- 	t	tag completion (default)
+  'o^5', -- Omnifunc (LSP),
+  '.^2', -- 	.	scan the current buffer (default)
+  'w^2', -- 	w	scan buffers from other windows (default)
+  'b^2', -- 	b	scan other loaded buffers that are in the buffer list (default)
+  'u^2', -- 	u	scan the unloaded buffers that are in the buffer list (default)
+  't^2', -- 	t	tag completion (default)
 }
-
--- 'complete' 'cpt'	string	(default ".,w,b,u,t")
-
--- 	U	scan the buffers that are not in the buffer list
--- 	k	scan the files given with the 'dictionary' option
--- 	kspell  use the currently active spell checking |spell|
--- 	k{dict}	scan the file {dict}.  Several "k" flags can be given,
--- 		patterns are valid too.  For example: >vim
--- 			set cpt=k/usr/dict/*,k~/spanish
--- <	s	scan the files given with the 'thesaurus' option
--- 	s{tsr}	scan the file {tsr}.  Several "s" flags can be given, patterns
--- 		are valid too.
--- 	i	scan current and included files
--- 	d	scan current and included files for defined name or macro
--- 		|i_CTRL-X_CTRL-D|
--- 	]	tag completion
-
--- 	f	scan the buffer names (as opposed to buffer contents)
--- 	F{func}	call the function {func}.  Multiple "F" flags may be
--- 		specified.  Refer to |complete-functions| for details on how
--- 		the function is invoked and what it should return.  The value
--- 		can be the name of a function or a |Funcref|.  For |Funcref|
--- 		values, spaces must be escaped with a backslash ('\'), and
--- 		commas with double backslashes ('\\') (see |option-backslash|).
--- 		Unlike other sources, functions can provide completions
--- 		starting from a non-keyword character before the cursor, and
--- 		their start position for replacing text may differ from other
--- 		sources.  If the Dict returned by the {func} includes
--- 		`{"refresh": "always"}`, the function will be invoked again
--- 		whenever the leading text changes.
--- 		If generating matches is potentially slow, call
--- 		|complete_check()| periodically to keep Vim responsive.  This
--- 		is especially important for |ins-autocompletion|.
--- 	F	equivalent to using "F{func}", where the function is taken
--- 		from the 'completefunc' option.
--- 	o	equivalent to using "F{func}", where the function is taken
--- 		from the 'omnifunc' option.
+vim.opt.autocompletedelay = 300

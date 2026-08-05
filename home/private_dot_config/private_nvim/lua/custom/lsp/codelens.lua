@@ -3,19 +3,21 @@ return {
   {
     method = 'textDocument/codeLens',
     keymaps = {
-      modes = { 'n', 'v' },
-      lhs = '<leader>tx',
-      rhs = function(client, bufnr)
-        return function()
-          vim.lsp.codelens.enable(
-            not vim.lsp.codelens.is_enabled(),
-            { client_id = client.id, bufnr = bufnr }
-          )
-        end
-      end,
-      opts = function(_, bufnr)
-        return { desc = 'toggle codelens', buf = bufnr }
-      end,
+      {
+        modes = { 'n', 'v' },
+        lhs = '<leader>tx',
+        rhs = function(client, bufnr)
+          return function()
+            vim.lsp.codelens.enable(
+              not vim.lsp.codelens.is_enabled(),
+              { client_id = client.id, bufnr = bufnr }
+            )
+          end
+        end,
+        opts = function(_, bufnr)
+          return { desc = 'toggle codelens', buf = bufnr }
+        end,
+      },
     },
     enable = function(client, bufnr)
       vim.lsp.codelens.enable(true, { client_id = client.id, bufnr = bufnr })
