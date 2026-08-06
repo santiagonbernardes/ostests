@@ -27,16 +27,20 @@ vim.opt.signcolumn = 'yes:1' -- Always show the sign column with 1 space
 vim.opt.ruler = false -- Don't show cursor coordinates
 vim.opt.fillchars = 'eob: ,fold:╌' -- Replace symbols on fold and end of buffer
 
--- built-in autocompletion
-vim.opt.autocomplete = true
-vim.opt.completeopt = { 'menuone', 'noselect', 'popup', 'fuzzy' }
+-- completion
+vim.opt.completeopt = { 'menu', 'menuone', 'noselect', 'popup', 'fuzzy' }
 vim.opt.pumborder = 'rounded'
 vim.opt.complete = {
   'o^5', -- Omnifunc (LSP),
-  '.^2', -- 	.	scan the current buffer (default)
-  'w^2', -- 	w	scan buffers from other windows (default)
-  'b^2', -- 	b	scan other loaded buffers that are in the buffer list (default)
-  'u^2', -- 	u	scan the unloaded buffers that are in the buffer list (default)
-  't^2', -- 	t	tag completion (default)
+  -- '.^2', -- 	.	scan the current buffer (default)
+  -- 'w^2', -- 	w	scan buffers from other windows (default)
+  -- 'b^2', -- 	b	scan other loaded buffers that are in the buffer list (default)
+  -- 'u^2', -- 	u	scan the unloaded buffers that are in the buffer list (default)
+  -- 't^2', -- 	t	tag completion (default)
 }
+vim.opt.pumheight = 10
+vim.opt.pummaxwidth = 100
+
+-- built-in autocompletion
+vim.opt.autocomplete = true
 vim.opt.autocompletedelay = 300

@@ -10,6 +10,11 @@ vim.pack.add({
 require('conform').setup({
   formatters_by_ft = {
     lua = { 'stylua' },
+    python = { 'ruff' },
+    rust = { 'rustfmt' },
+    ruby = { 'rubocop' },
+    html = { 'prettier' },
+    javascript = { 'prettier' },
   },
   lsp_format = 'fallback',
   default_format_opts = {

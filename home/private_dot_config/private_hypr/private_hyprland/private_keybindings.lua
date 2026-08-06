@@ -74,5 +74,5 @@ hl.bind("ALT + SHIFT + TAB", hl.dsp.window.alter_zorder({ mode = "top" }))
 
 hl.bind("switch:on:Lid Switch", hl.dsp.exec_cmd("clamshell close"), { locked = true })
 hl.bind("switch:off:Lid Switch", hl.dsp.exec_cmd("clamshell open"), { locked = true })
-hl.bind("Print", hl.dsp.exec_cmd('grim -g "$(slurp)"'))
-hl.bind("XF86Launch8", hl.dsp.exec_cmd('grim -g "$(slurp)"'))
+hl.bind("Print", hl.dsp.exec_cmd('grim -g "$(slurp)" - | swappy -f -'))
+hl.bind("XF86Launch8", hl.dsp.exec_cmd('grim -g "$(slurp)" - | swappy -f -'))
