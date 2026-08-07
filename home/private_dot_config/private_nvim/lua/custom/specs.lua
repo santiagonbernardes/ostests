@@ -43,6 +43,20 @@ local M = {
     src = 'https://github.com/nvim-mini/mini.extra',
     version = 'main',
   },
-}
 
+  nvim_dap = {
+    src = 'https://github.com/mfussenegger/nvim-dap',
+    version = 'master',
+  },
+
+  nvim_nio = {
+    src = 'https://github.com/nvim-neotest/nvim-nio',
+    version = 'master',
+  },
+
+  luaFixCursorHold_nvim = {
+    src = 'https://github.com/antoinemadec/FixCursorHold.nvim',
+    version = 'master',
+  },
+}
 return M

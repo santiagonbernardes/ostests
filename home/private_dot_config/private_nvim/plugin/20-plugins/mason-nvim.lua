@@ -13,6 +13,8 @@ local packages = {
   'ansible-language-server',
   'ansible-lint',
   'rubocop',
+  'debugpy',
+  'codelldb',
 }
 
 require('mason-registry').refresh(function()

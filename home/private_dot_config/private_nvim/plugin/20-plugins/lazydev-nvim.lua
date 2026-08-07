@@ -12,6 +12,7 @@ vim.api.nvim_create_autocmd('FileType', {
           path = '${3rd}/luv/library',
           words = { 'vim%.uv' },
         },
+        { 'nvim-dap-ui' },
       },
     })
   end,

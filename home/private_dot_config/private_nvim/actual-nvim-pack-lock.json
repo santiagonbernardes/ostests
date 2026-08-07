@@ -1,5 +1,10 @@
 {
   "plugins": {
+    "FixCursorHold.nvim": {
+      "rev": "1900f89dc17c603eec29960f57c00bd9ae696495",
+      "src": "https://github.com/antoinemadec/FixCursorHold.nvim",
+      "version": "'master'"
+    },
     "bufferline.nvim": {
       "rev": "655133c3b4c3e5e05ec549b9f8cc2894ac6f51b3",
       "src": "https://github.com/akinsho/bufferline.nvim",
@@ -64,6 +69,16 @@
       "src": "https://github.com/nvim-mini/mini.surround",
       "version": "'main'"
     },
+    "neotest": {
+      "rev": "1c529a1ef9c82e8131e872368415cecc2bb86ea2",
+      "src": "https://github.com/nvim-neotest/neotest",
+      "version": "5.0.0 - 6.0.0"
+    },
+    "neotest-python": {
+      "rev": "1b56ca4ba51c6014f986d6548ee629bdc95589d1",
+      "src": "https://github.com/nvim-neotest/neotest-python",
+      "version": "'master'"
+    },
     "noice.nvim": {
       "rev": "7bfd942445fb63089b59f97ca487d605e715f155",
       "src": "https://github.com/folke/noice.nvim",
@@ -79,10 +94,30 @@
       "src": "https://github.com/windwp/nvim-autopairs",
       "version": "'master'"
     },
+    "nvim-dap": {
+      "rev": "9e848e09a697ee95302a3ef2dd43fd6eb709e570",
+      "src": "https://github.com/mfussenegger/nvim-dap",
+      "version": "'master'"
+    },
+    "nvim-dap-python": {
+      "rev": "1808458eba2b18f178f990e01376941a42c7f93b",
+      "src": "https://codeberg.org/mfussenegger/nvim-dap-python",
+      "version": "'master'"
+    },
+    "nvim-dap-ui": {
+      "rev": "cc9dd33aade7f20bae414d0cba163bc60d4d4b43",
+      "src": "https://github.com/rcarriga/nvim-dap-ui",
+      "version": "'master'"
+    },
     "nvim-lspconfig": {
       "rev": "b89138d9af0a96e6048e202a15765fc6b6416bd4",
       "src": "https://github.com/neovim/nvim-lspconfig",
       "version": "2.0.0 - 3.0.0"
+    },
+    "nvim-nio": {
+      "rev": "edcc181a875301dd21840189aa2f2f9ad69fc172",
+      "src": "https://github.com/nvim-neotest/nvim-nio",
+      "version": "'master'"
     },
     "nvim-notify": {
       "rev": "8701bece920b38ea289b457f902e2ad184131a5d",
@@ -108,6 +143,11 @@
       "rev": "74b06c6c75e4eeb3108ec01852001636d85a932b",
       "src": "https://github.com/nvim-lua/plenary.nvim",
       "version": "'master'"
+    },
+    "rustaceanvim": {
+      "rev": "f4051fb4662c43a568ce809a37e47c0f4e3d7a31",
+      "src": "https://github.com/mrcjkb/rustaceanvim",
+      "version": "9.0.0 - 10.0.0"
     },
     "starry.nvim": {
       "rev": "67031d569823d99bfefc424170b746611a499be5",
