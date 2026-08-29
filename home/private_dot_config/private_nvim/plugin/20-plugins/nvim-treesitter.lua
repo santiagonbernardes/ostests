@@ -76,4 +76,11 @@ require('nvim-treesitter').install({
   'vimdoc',
   'ruby',
   'regex',
+  'yaml',
+  'toml',
+  'java',
+  'javascript',
+  'typescript',
+  'css',
+  'json',
 })

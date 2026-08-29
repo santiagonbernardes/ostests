@@ -15,6 +15,11 @@ local packages = {
   'rubocop',
   'debugpy',
   'codelldb',
+  'json-lsp',
+  'json-lint',
+  'prettier',
+  'marksman',
+  'markdownlint',
 }
 
 require('mason-registry').refresh(function()

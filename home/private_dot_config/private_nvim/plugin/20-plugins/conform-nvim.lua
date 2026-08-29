@@ -15,6 +15,8 @@ require('conform').setup({
     ruby = { 'rubocop' },
     html = { 'prettier' },
     javascript = { 'prettier' },
+    json = { 'prettier' },
+    markdown = { 'prettier' },
   },
   lsp_format = 'fallback',
   default_format_opts = {
