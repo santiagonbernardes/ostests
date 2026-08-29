@@ -1,0 +1,29 @@
+-- local noice = require('noice')
+-- require('which-key').add({
+--   {
+--     mode = { 'n', 'x' },
+--     lhs = '<leader>n',
+--     group = '[n]otifications',
+--     icon = '󰂚',
+--   },
+-- })
+--
+-- vim.keymap.set(
+--   { 'n', 'v' },
+--   '<leader>nh',
+--   function() return noice.cmd('fzf') end,
+--   { desc = 'Show [n]otification [h]istory' }
+-- )
+--
+-- vim.keymap.set(
+--   { 'n', 'v' },
+--   '<leader>nl',
+--   function() return noice.cmd('last') end,
+--   { desc = 'Show [l]ast notification' }
+-- )
+-- vim.keymap.set(
+--   { 'n', 'v' },
+--   '<leader>nd',
+--   function() return noice.cmd('dismiss') end,
+--   { desc = '[d]ismiss visible notifications' }
+-- )
